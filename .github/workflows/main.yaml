@@ -21,3 +21,7 @@ jobs:
       run: |
         rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./* ubuntu@ec2-65-2-98-244.ap-south-1.compute.amazonaws.com:/tmp/
         ssh ubuntu@ec2-65-2-98-244.ap-south-1.compute.amazonaws.com 'sudo rsync -avz /tmp/ /var/www/html/angular-app-backend'
+    - name: Run npm build
+      run: |
+          ssh ubuntu@ec2-65-2-98-244.ap-south-1.compute.amazonaws.com 'cd /var/www/html/angular-app-backend && npm install && sudo pm2 restart index.js'
+
