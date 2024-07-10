@@ -20,4 +20,4 @@ jobs:
     - name: Copy files via SCP
       run: |
         rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./* ubuntu@ec2-65-2-98-244.ap-south-1.compute.amazonaws.com:/tmp/
-        ssh ubuntu@ec2-65-2-98-244.ap-south-1.compute.amazonaws.com 'sudo rsync -avz /tmp/ /var/www/html/'
+        ssh ubuntu@ec2-65-2-98-244.ap-south-1.compute.amazonaws.com 'sudo rsync -avz /tmp/ /var/www/html/angular-app-backend'
