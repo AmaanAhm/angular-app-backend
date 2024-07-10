@@ -9,9 +9,8 @@ const cors = require('cors');
 dbConn.connect();
 
 const app = express();
-const port = process.env.API_PORT || 5000;
 app.use(cors({
-    origin: 'http://localhost:4200', // Allow requests from this origin
+    origin: ['http://localhost:4200', 'http://localhost', 'http://65.2.98.244/'], // Allow requests from this origin
     methods: ['GET', 'POST'], // Allow these HTTP methods
     allowedHeaders: ['Content-Type'], // Allow these headers
   }));
@@ -24,7 +23,8 @@ app.use(upload.array());
 // Routes
 app.use('/api', routes); // Prefix all routes with /api
 
-// Start the server
+
+const port = 5001;  // Change to 5001 or any other available port
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server  running on http://localhost:${port}`);
 });
